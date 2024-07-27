@@ -1,4 +1,4 @@
-# Hints
+# Architecture Understanding
 ## Terraform Keywords
 - provider
 - backend
@@ -20,3 +20,4 @@
   - What securitygroup is attached to it?
     - What traffic is allowed in and out?
   - What is being hosted on these VMs?
+- How can it be made more secure?

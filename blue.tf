@@ -4,7 +4,7 @@ data "aws_ami" "blue" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+    values = ["al2023-ami-*-x86_64"]
   }
 }
 
@@ -18,7 +18,6 @@ resource "aws_instance" "blue" {
   user_data = templatefile("${path.module}/init-script.sh", {
     file_content = "blue v1.0 - #${count.index}"
   })
-  key_name = "slim"
   associate_public_ip_address = true
   tags = {
     Name = "${var.name}-blue-${count.index}"
