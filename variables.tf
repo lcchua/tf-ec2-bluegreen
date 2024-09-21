@@ -7,7 +7,7 @@ variable "name" {
 variable "vpc_id" {
   description = "Virtural Private Cloud ID"
   type        = string
-  default     = "lcchua-vpc-ssh" # to replace
+  default     = "vpc-0444ca4b865539c2d" # to replace
 }
 
 variable "enable_blue_env" {
