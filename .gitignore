@@ -6,3 +6,4 @@
 *.tfstate.*
 
 .terraform.lock.hcl
+terraform_out
