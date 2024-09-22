@@ -16,11 +16,11 @@ variable "enable_blue_env" {
   default     = true
 }
 
-# variable "enable_green_env" {
-#   description = "Enable green environment"
-#   type        = bool
-#   default     = false
-# }
+ variable "enable_green_env" {
+  description = "Enable green environment"
+  type        = bool
+  default     = true
+}
 
 # variable "traffic_distribution" {
 #   description = "Levels of traffic distribution"
