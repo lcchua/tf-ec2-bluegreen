@@ -2,11 +2,26 @@ name: Deployment
 
 on:
   workflow_dispatch:
+    inputs:
+      traffic_distri_select:
+        description: "Select the traffic distribution strategy: "
+        required: true
+        default: "blue"
+        type: choice
+        options:
+          - blue
+          - blue-90
+          - split
+          - green-90
+          - green
 
 jobs:
   CD:
     runs-on: ubuntu-latest
     steps:
+      - name: Print selected traffic distribution strategy
+        run: echo "Selected traffic distribution strategy is ${{ github.event.inputs.traffic_distri_select }}"
+
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -25,7 +40,7 @@ jobs:
 
       - name: Terraform Apply
         #  run: terraform apply -no-color -auto-approve
-        run: terraform apply -var 'traffic_distribution=split' -no-color -auto-approve
+        run: terraform apply -var "${{ github.event.inputs.traffic_distri_select }}" -no-color -auto-approve
 
       - name: Export terraform outputs
         id: tfout
