@@ -19,7 +19,7 @@ variable "enable_blue_env" {
 variable "enable_green_env" {
   description = "Enable green environment"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "traffic_distribution" {
