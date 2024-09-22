@@ -1,11 +1,11 @@
- data "aws_ami" "green" {
-   most_recent = true
-   owners      = ["amazon"]
+data "aws_ami" "green" {
+  most_recent = true
+  owners      = ["amazon"]
 
-   filter {
-     name   = "name"
-     values = ["al2023-ami-*-x86_64"]
-   }
+  filter {
+    name   = "name"
+    values = ["al2023-ami-*-x86_64"]
+  }
 }
 
 resource "aws_instance" "green" {
