@@ -25,7 +25,7 @@ jobs:
 
       - name: Terraform Apply
         #  run: terraform apply -no-color -auto-approve
-        run: terraform apply -var 'traffic_distribution=split-split' -no-color -auto-approve
+        run: terraform apply -var 'traffic_distribution=split' -no-color -auto-approve
 
       - name: Export terraform outputs
         id: tfout
