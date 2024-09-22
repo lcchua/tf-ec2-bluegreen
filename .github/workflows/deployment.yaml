@@ -24,7 +24,8 @@ jobs:
         run: terraform init
 
       - name: Terraform Apply
-        run: terraform apply -no-color -auto-approve
+        #  run: terraform apply -no-color -auto-approve
+        run: terraform apply -var 'enable_blue_env=false' -var 'enable_green_env=true' -no-color -auto-approve
 
       - name: Export terraform outputs
         id: tfout
