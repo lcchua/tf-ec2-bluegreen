@@ -40,7 +40,7 @@ jobs:
 
       - name: Terraform Apply
         #  run: terraform apply -no-color -auto-approve
-        run: terraform apply -var "${{ github.event.inputs.traffic_distri_select }}" -no-color -auto-approve
+        run: terraform apply -var "traffic_distribution=${{ github.event.inputs.traffic_distri_select }}" -no-color -auto-approve
 
       - name: Export terraform outputs
         id: tfout
