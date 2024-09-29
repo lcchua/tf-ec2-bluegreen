@@ -13,7 +13,7 @@ resource "aws_instance" "blue" {
 
   ami                    = data.aws_ami.blue.id
   instance_type          = "t2.micro"
-  subnet_id              = data.aws_subnets.public.ids[count.index % length(data.aws_subnets.private.ids)]
+  subnet_id              = data.aws_subnets.public.ids[count.index % length(data.aws_subnets.public.ids)]
   vpc_security_group_ids = [aws_security_group.app.id]
   user_data = templatefile("${path.module}/init-script.sh", {
     file_content = "blue v1.0 - #${count.index}"
