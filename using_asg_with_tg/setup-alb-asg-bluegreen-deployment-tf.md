@@ -8,28 +8,28 @@
 #  - Health Checks - Ensures only healthy instances receive traffic
 #  - Custom User Data - Bootstraps instances with a script
 
-variable "vpc_id" {}
-variable "subnet_ids" {}
-variable "instance_type" { default = "t3.micro" }
-variable "ami_id" {}
-variable "name" { default = "app" }
-variable "traffic_distribution" { default = "all_blue" }
+variable "vpc_id" {}  
+variable "subnet_ids" {}  
+variable "instance_type" { default = "t3.micro" }  
+variable "ami_id" {}  
+variable "name" { default = "app" }  
+variable "traffic_distribution" { default = "all_blue" }  
 
-locals {
-  traffic_dist_map = {
-    "all_blue"   = { blue = 100, green = 0 }
-    "all_green"  = { blue = 0, green = 100 }
-    "gradual"    = { blue = 80, green = 20 }
-  }
-}
+locals {  
+  traffic_dist_map = {  
+    "all_blue"   = { blue = 100, green = 0 }  
+    "all_green"  = { blue = 0, green = 100 }  
+    "gradual"    = { blue = 80, green = 20 }  
+  }  
+}  
 
-resource "aws_lb" "app" {
-  name               = "${var.name}-alb"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [aws_security_group.alb_sg.id]
-  subnets            = var.subnet_ids
-}
+resource "aws_lb" "app" {  
+  name               = "${var.name}-alb"  
+  internal           = false  
+  load_balancer_type = "application"  
+  security_groups    = [aws_security_group.alb_sg.id]  
+  subnets            = var.subnet_ids  
+}  
 
 resource "aws_lb_target_group" "blue" {
   name     = "${var.name}-blue-tg"
