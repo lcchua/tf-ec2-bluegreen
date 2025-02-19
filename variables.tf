@@ -25,7 +25,7 @@ variable "enable_green_env" {
 variable "traffic_distribution" {
   description = "Levels of traffic distribution"
   type        = string
-  # if there is not traffice distribution strategy chosen, then the default is blue.
+  # if there is not traffic distribution strategy chosen, then the default is blue.
   default     = "blue"
 }
 
