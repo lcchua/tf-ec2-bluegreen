@@ -1,18 +1,11 @@
 
 # Setting up a Terraform configuration that sets up a fully automated ALB with
-
 # Auto Scaling deployment with Blue-Green Deployment support
-
 # - Application Load Balancer (ALB) - Routes HTTP traffic
-
 # - Target Groups (Blue & Green) - For Blue-Green deployment
-
 # - Auto Scaling Group (ASG) & Launch Template - Dynamically scales EC2 instances
-
 # - Dynamic Traffic Switching - Using ALB Listener with weighted target groups0
-
 # - Health Checks - Ensures only healthy instances receive traffic
-
 # - Custom User Data - Bootstraps instances with a script
 
 variable "vpc_id" {}  
